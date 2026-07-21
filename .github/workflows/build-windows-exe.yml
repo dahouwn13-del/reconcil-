@@ -1,0 +1,39 @@
+name: Build CIEL Windows EXE
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Restore packages
+        run: dotnet restore CIEL_Reconciliation_Native.sln
+
+      - name: Publish Windows application
+        run: >
+          dotnet publish CIEL.Reconciliation/CIEL.Reconciliation.csproj
+          --configuration Release
+          --runtime win-x64
+          --self-contained true
+          /p:PublishSingleFile=true
+          /p:IncludeNativeLibrariesForSelfExtract=true
+          --output publish
+
+      - name: Upload Windows application
+        uses: actions/upload-artifact@v4
+        with:
+          name: CIEL-Reconciliation-Windows
+          path: publish/**
