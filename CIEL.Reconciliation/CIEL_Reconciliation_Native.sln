@@ -1,0 +1,15 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIEL.Reconciliation", "CIEL.Reconciliation\CIEL.Reconciliation.csproj", "{E71846D2-E57A-4D45-88AE-4A2673B6C809}"
+EndProject
+Global
+    GlobalSection(SolutionConfigurationPlatforms) = preSolution
+        Release|Any CPU = Release|Any CPU
+    EndGlobalSection
+    GlobalSection(ProjectConfigurationPlatforms) = postSolution
+        {E71846D2-E57A-4D45-88AE-4A2673B6C809}.Release|Any CPU.ActiveCfg = Release|Any CPU
+        {E71846D2-E57A-4D45-88AE-4A2673B6C809}.Release|Any CPU.Build.0 = Release|Any CPU
+    EndGlobalSection
+EndGlobal
