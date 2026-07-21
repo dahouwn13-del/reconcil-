@@ -46,7 +46,7 @@ public static class ExcelExporter
             ws.Cell(row, 10).Value = x.OperaStatus; ws.Cell(row, 11).Value = x.MatchScore; ws.Cell(row, 12).Value = x.MatchMethod; ws.Cell(row, 13).Value = x.Result; ws.Cell(row, 14).Value = x.Reason;
         }
         var used = ws.RangeUsed();
-        if (used != null)
+        if (used is not null)
         {
             used.CreateTable();
             ws.Row(1).Style.Font.SetBold().Font.SetFontColor(XLColor.White).Fill.SetBackgroundColor(XLColor.FromHtml("#0077B6"));
