@@ -72,8 +72,8 @@ public sealed class MainForm : Form
             BackColor = BackColor
         };
         root.RowStyles.Add(new RowStyle(SizeType.Absolute, 70));
-        root.RowStyles.Add(new RowStyle(SizeType.Absolute, 205));
-        root.RowStyles.Add(new RowStyle(SizeType.Absolute, 112));
+        root.RowStyles.Add(new RowStyle(SizeType.Absolute, 250));
+        root.RowStyles.Add(new RowStyle(SizeType.Absolute, 108));
         root.RowStyles.Add(new RowStyle(SizeType.Absolute, 58));
         root.RowStyles.Add(new RowStyle(SizeType.Absolute, 48));
         root.RowStyles.Add(new RowStyle(SizeType.Percent, 100));
@@ -115,7 +115,7 @@ public sealed class MainForm : Form
         ForeColor = Color.White,
         Font = new Font("Segoe UI Semibold", 11, FontStyle.Bold),
         Cursor = Cursors.Hand,
-        Margin = new Padding(0, 8, 8, 2)
+        Margin = new Padding(0)
     };
 
     private static Button CreateSecondaryButton(string text) => new()
@@ -128,7 +128,7 @@ public sealed class MainForm : Form
         ForeColor = Color.FromArgb(0, 86, 122),
         Font = new Font("Segoe UI Semibold", 10, FontStyle.Bold),
         Cursor = Cursors.Hand,
-        Margin = new Padding(8, 8, 0, 2)
+        Margin = new Padding(0)
     };
 
     private Control BuildHeader()
@@ -173,7 +173,7 @@ public sealed class MainForm : Form
         table.RowStyles.Add(new RowStyle(SizeType.Absolute, 34));
         table.RowStyles.Add(new RowStyle(SizeType.Absolute, 48));
         table.RowStyles.Add(new RowStyle(SizeType.Absolute, 48));
-        table.RowStyles.Add(new RowStyle(SizeType.Percent, 100));
+        table.RowStyles.Add(new RowStyle(SizeType.Absolute, 66));
         card.Controls.Add(table);
 
         var heading = new Label
@@ -199,11 +199,19 @@ public sealed class MainForm : Form
         browseOpera.Click += (_, _) => BrowseOpera();
         table.Controls.Add(browseOpera, 2, 2);
 
-        var actions = new TableLayoutPanel { Dock = DockStyle.Fill, ColumnCount = 2, RowCount = 1, Padding = new Padding(185, 0, 0, 0) };
-        actions.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 67));
-        actions.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33));
+        var actions = new TableLayoutPanel
+        {
+            Dock = DockStyle.Fill,
+            ColumnCount = 3,
+            RowCount = 1,
+            Padding = new Padding(185, 6, 0, 4),
+            Margin = new Padding(0)
+        };
+        actions.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100));
+        actions.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 18));
+        actions.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 250));
         actions.Controls.Add(_run, 0, 0);
-        actions.Controls.Add(_export, 1, 0);
+        actions.Controls.Add(_export, 2, 0);
         table.SetColumnSpan(actions, 3);
         table.Controls.Add(actions, 0, 3);
 
